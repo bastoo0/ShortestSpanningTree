@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class DFSCycle {
+public class Connexite {
 
 	private Graph graph;
 	
-	public DFSCycle(Graph g) {
+	public Connexite(Graph g) {
 		this.graph = g;
 	}
 	

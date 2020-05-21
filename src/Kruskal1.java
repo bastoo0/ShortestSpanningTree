@@ -18,7 +18,7 @@ public class Kruskal1 {
 		for(Vertex v : vectrices) {
 			graph.getGraph().get(v).clear();
 		}
-		DFSCycle c = new DFSCycle(graph);
+		Connexite c = new Connexite(graph);
 		for(Edge e : edges) {
 			
 			if(!c.existsPathToDest(e)) {

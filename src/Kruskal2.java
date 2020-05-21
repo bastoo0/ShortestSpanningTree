@@ -15,7 +15,7 @@ public class Kruskal2 {
 	public void calcul() {
 		List<Edge> edges = graph.getDescendingOrderEdges();
 		
-		DFSCycle c = new DFSCycle(graph);
+		Connexite c = new Connexite(graph);
 		
 		for(Edge e : edges) {
 			
