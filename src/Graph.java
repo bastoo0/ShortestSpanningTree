@@ -28,8 +28,7 @@ public class Graph {
 		addVertex(vSource);
 		addVertex(vDest);
 		Edge e1 = new Edge(vSource, vDest, weight);
-		Edge e2 = new Edge(vDest, vSource, weight);
-		
+		Edge e2 = new Edge(vDest,vSource , weight);
 		if(!graph.get(vSource).contains(e1))
 			graph.get(vSource).add(e1);
 		if(!graph.get(vDest).contains(e2))
@@ -46,20 +45,20 @@ public class Graph {
 	}
 
 	public void printGraph() {
-		System.out.println(graph.toString());
+		System.out.println(this.toString());
 	}
 	
 
 	public String toString() {
 
 		StringBuilder builder = new StringBuilder(); 
-		for (Vertex v : graph.keySet()) { 
-			builder.append(v.toString() + ": "); 
-			for (Edge a : graph.get(v)) { 
-				builder.append(a.toString() + " "); 
+			Collection<ArrayList<Edge>> arr = this.getAllEdges();
+			for(ArrayList<Edge> arrEdges : arr) {
+			for (Edge a : arrEdges) { 
+				builder.append("e " + a.getFrom() + " " + a.getTo() + " " + a.getWeight() + "\n"); 
 			} 
+			}
 			builder.append("\n"); 
-		}
 		return builder.toString();
 	}
 	
@@ -94,6 +93,18 @@ public class Graph {
 		}
 		return result;
 		
+	}
+	
+	public Integer getWeight() {
+		Collection<ArrayList<Edge>> edges = getAllEdges();
+		Integer weight = 0;
+		
+		for(ArrayList<Edge> edgeList : edges) {
+			for(Edge e : edgeList) {
+				weight += e.getWeight();
+			}
+		}
+		return weight/2;
 	}
 	/*
 	private static <K, V extends Comparable<V>> TreeMap<K, V> sortByValuesDesc(final Map<K, V> map) {

@@ -1,12 +1,10 @@
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 public class Kruskal1 {
 
 	private Graph graph;
-	ArrayList<Edge> edgeList = new ArrayList<>();
+	//ArrayList<Edge> edgeList = new ArrayList<>();
 	Integer SPValue = 0;
 	
 	public Kruskal1(Graph g) {
@@ -20,18 +18,18 @@ public class Kruskal1 {
 		for(Vertex v : vectrices) {
 			graph.getGraph().get(v).clear();
 		}
-		
+		DFSCycle c = new DFSCycle(graph);
 		for(Edge e : edges) {
 			
-			DFSCycle c = new DFSCycle(graph);
-			if(!c.isCycle(e)) {
-				edgeList.add(e);
+			if(!c.existsPathToDest(e)) {
 				graph.getAdjacencyList(e.getFrom()).add(e);
-				graph.getAdjacencyList(e.getTo()).add(e);
-				SPValue += e.getWeight();
+				Edge back = new Edge(e.getTo(), e.getFrom(), e.getWeight());
+				graph.getAdjacencyList(e.getTo()).add(back);
+
 			}
 		}
-		graph.printGraph();
+		SPValue = graph.getWeight();
+		//graph.printGraph();
 	}
 	
 	public Integer getSPWeigth() {
