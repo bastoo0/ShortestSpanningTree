@@ -6,13 +6,16 @@ public class Kruskal2 {
 
 	private Graph graph;
 	Integer SPValue = 0;
-	
+	private long exeTime;
+
 	public Kruskal2(Graph g) {
 		this.graph = g;
 		calcul();
 	}
 	
 	public void calcul() {
+		long startTime = System.currentTimeMillis();
+
 		List<Edge> edges = graph.getDescendingOrderEdges();
 		
 		Connexite c = new Connexite(graph);
@@ -32,6 +35,8 @@ public class Kruskal2 {
 			}
 			
 		}
+		this.exeTime = System.currentTimeMillis() - startTime;
+
 		SPValue = graph.getWeight();
 		//graph.printGraph();
 	}

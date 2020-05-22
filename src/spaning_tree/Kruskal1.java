@@ -8,13 +8,16 @@ public class Kruskal1 {
 	private Graph graph;
 	//ArrayList<spaning_tree.Edge> edgeList = new ArrayList<>();
 	Integer SPValue = 0;
-	
+	private long exeTime;
+
 	public Kruskal1(Graph g) {
 		this.graph = g;
 		calcul();
 	}
 	
 	public void calcul() {
+		long startTime = System.currentTimeMillis();
+
 		List<Edge> edges = graph.getAscendingOrderEdges();
 		Set<Vertex> vectrices = graph.getAllVertex();
 		for(Vertex v : vectrices) {
@@ -30,6 +33,8 @@ public class Kruskal1 {
 
 			}
 		}
+
+		this.exeTime = System.currentTimeMillis() - startTime;
 		SPValue = graph.getWeight();
 		//graph.printGraph();
 	}
