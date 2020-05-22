@@ -1,6 +1,6 @@
 package spaning_tree;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Connexite {
 
@@ -13,33 +13,26 @@ public class Connexite {
 	
 	public boolean existsPathToDest(Edge e)
     {
-		
 		// Pour chaque sommet adjacent d'un des sommets de l'arc
             for(Edge ed : graph.getAdjacencyList(e.getFrom()))
             {
             	// On v�rifie si il n'y existe pas un autre chemin vers l'autre sommet de l'arc
-                if(findPathRecurs(e.getTo(), ed, new ArrayList<Vertex>()))
-                {
-                    return true;
-                }
+                if(findPathRecurs(e.getTo(), ed, new HashSet<Vertex>())) return true;
             }
         return false;
     }
 	
-	public boolean findPathRecurs(Vertex dest, Edge e, ArrayList<Vertex> vList) {
+	public boolean findPathRecurs(Vertex dest, Edge e, HashSet<Vertex> vList) {
 		// Ajoute le sommet dans la liste des visit�s
 		vList.add(e.getTo());
 		
-		// Si le sommet que l'on visite est �gal � celui qu'on doit trouver
+		// Si le sommet que l'on visite est égal à celui qu'on doit trouver
 		// (L'autre sommet de l'arc d'origine), on a un cycle
-		if(e.getTo().equals(dest)) {
-			return true;
-		}
+		if(e.getTo().equals(dest)) return true;
 		
-
-		// Tant qu'il y a des adjacences (r�cursivement), on les explore
+		// Tant qu'il y a des adjacences (récursivement), on les explore
 		for(Edge edge : graph.getAdjacencyList(e.getTo())) {
-			// On ne veut pas visiter plusieurs fois les m�mes sommets (r�cursion infinie)
+			// On ne veut pas visiter plusieurs fois les mêmes sommets (récursion infinie)
 			if(vList.contains(edge.getTo())) continue; 
 			
 			if(findPathRecurs(dest, edge, vList)) return true;

@@ -28,13 +28,16 @@ public class Main {
 			//graph.printGraph();
 			
 			Kruskal1 k1 = new Kruskal1(graph);
-			System.out.println("Kruskal 1 : " + k1.getSPWeigth());
+			System.out.println("MST pour Kruskal 1 : " + k1.getSPWeigth()+ 
+					" - calculé en " + k1.getExeTime() + " ms.");
 			
 			Kruskal2 k2 = new Kruskal2(graph2);
-			System.out.println("Kruskal 2 : " + k2.getSPWeigth());
+			System.out.println("MST pour Kruskal 2 (Reverse-Delete) : " + k2.getSPWeigth()+ 
+					" - calculé en " + k2.getExeTime() + " ms.");
 
 			Prim prim = new Prim(graph3);
-			System.out.println("Prim : " + prim.getSPWeigth());
+			System.out.println("MST pour Prim : " + prim.getSPWeigth() + 
+					" - calculé en " + prim.getExeTime() + " ms.");
 	}
 
 }

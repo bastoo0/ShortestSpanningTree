@@ -14,12 +14,13 @@ public class Kruskal2 {
 	}
 	
 	public void calcul() {
-		long startTime = System.currentTimeMillis();
-
+		
 		List<Edge> edges = graph.getDescendingOrderEdges();
 		
+		long startTime = System.currentTimeMillis();
 		Connexite c = new Connexite(graph);
 		
+		// Pour chaque arc
 		for(Edge e : edges) {
 			
 			// On retire l'arc du graph
@@ -27,7 +28,7 @@ public class Kruskal2 {
 			Edge back = new Edge(e.getTo(), e.getFrom(), e.getWeight());
 			graph.getAdjacencyList(e.getFrom()).remove(back);
 			
-			// Si il n'y a plus de chemin disponible d'un bout � l'autre de l'arc
+			// Si il n'y a plus de chemin disponible d'un bout à l'autre de l'arc
 			//  on remet l'arc dans le graph
 			if(!c.existsPathToDest(e)) {
 				graph.getAdjacencyList(e.getFrom()).add(e);
@@ -43,6 +44,10 @@ public class Kruskal2 {
 	
 	public Integer getSPWeigth() {
 		return SPValue;
+	}
+
+	public long getExeTime() {
+		return exeTime;
 	}
 	
 

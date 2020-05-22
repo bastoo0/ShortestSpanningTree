@@ -91,6 +91,7 @@ public class Graph {
 			//System.out.println(e);
 				result.add(e.getTo());
 		}
+		Collections.shuffle(result);
 		return result;
 		
 	}
@@ -106,45 +107,7 @@ public class Graph {
 		}
 		return weight/2;
 	}
-	/*
-	private static <K, V extends Comparable<V>> TreeMap<K, V> sortByValuesDesc(final Map<K, V> map) {
-	    Comparator<K> valueComparator =  new Comparator<K>() {
-	        public int compare(K k1, K k2) {
-	            int compare = map.get(k2).compareTo(map.get(k1));
-	            if (compare == 0) return 1;
-	            else return compare;
-	        }
-	    };
-	    TreeMap<K, V> sortedByValues = new TreeMap<K, V>(valueComparator);
-	    sortedByValues.putAll(map);
-	    return sortedByValues;
-	}
-	
-	public List<Integer> getRandomOrderVertex() {
-		List<Integer> list = new ArrayList<>(getAllVertex());
-		Collections.shuffle(list);
-		return list;
-	}
 
-	
-	// Ordonne les vertex en fonction de leur nombre d'adjacences dans l'ordre d�croissant
-	public List<Integer> getDescendingOrderVertex() {
-		Set<Integer> vertex = getAllVertex();
-		
-		HashMap<Integer, Integer> associations = new HashMap<>();
-		for(Integer v : vertex) {
-			associations.put(v, edgesCount(v));
-		}
-		
-		TreeMap<Integer, Integer> orderedVertex = sortByValuesDesc(associations);
-    	//System.out.println(orderedVertex.size());
-		/*for(Entry<Integer, Integer> v : orderedVertex.entrySet()) {
-			System.out.println(v.getKey() + " " + v.getValue());
-		}
-		
-		return new ArrayList<Integer>(orderedVertex.keySet());
-	}
-	*/
 	public List<Edge> getAscendingOrderEdges(){
 		Collection<ArrayList<Edge>> edges = getAllEdges();
 		ArrayList<Edge> sortedEdges = new ArrayList<Edge>();
@@ -162,6 +125,16 @@ public class Graph {
 		    sortedEdges.addAll(connections);
 		}
 		Collections.sort(sortedEdges, Collections.reverseOrder());
+		return sortedEdges;
+	}
+	
+	public List<Edge> getRandomOrderEdges(){
+		Collection<ArrayList<Edge>> edges = getAllEdges();
+		ArrayList<Edge> sortedEdges = new ArrayList<Edge>();
+		for (List<Edge> connections : edges) {
+		    sortedEdges.addAll(connections);
+		}
+		Collections.shuffle(sortedEdges);
 		return sortedEdges;
 	}
 }
