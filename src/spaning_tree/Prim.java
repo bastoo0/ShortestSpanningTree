@@ -6,7 +6,7 @@ public class Prim {
 
     private Graph graph;
     Integer SPValue = 0;
-    private long exeTime = 0;
+    private long exeTime;
 
     public Prim(Graph graph) {
         this.graph = graph;
