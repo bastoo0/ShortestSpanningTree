@@ -26,9 +26,9 @@ public class Prim {
         for(Edge e : edges){
             //on vérifie quelle arrête a le poids minimum
             // dans tous les sommets adjacents des sommets
-            if(){
+            if(e.getWeight() < vertex.getValue()){
                 graph.getAdjacencyList(e.getFrom()).add(e);
-                graph.addVertex(vertex);
+                graph.addVertex(e.getTo());
             }
         }
 
