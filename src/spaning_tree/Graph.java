@@ -1,4 +1,4 @@
-
+package spaning_tree;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -127,7 +127,7 @@ public class Graph {
 	}
 
 	
-	// Ordonne les vertex en fonction de leur nombre d'adjacences dans l'ordre décroissant
+	// Ordonne les vertex en fonction de leur nombre d'adjacences dans l'ordre dï¿½croissant
 	public List<Integer> getDescendingOrderVertex() {
 		Set<Integer> vertex = getAllVertex();
 		
@@ -165,4 +165,3 @@ public class Graph {
 		return sortedEdges;
 	}
 }
- 

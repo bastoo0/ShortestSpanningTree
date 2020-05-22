@@ -1,3 +1,4 @@
+package spaning_tree;
 
 public class Edge implements Comparable<Edge>{
 	    private Vertex from;
@@ -74,7 +75,7 @@ public class Edge implements Comparable<Edge>{
 			return true;
 		}
 
-		/*public boolean equals(Edge e) {
+		/*public boolean equals(spaning_tree.Edge e) {
 			if(e != null) {
 			if((to == e.to && from == e.from) || (to == e.from && from == e.to))
 				return true;

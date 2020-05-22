@@ -1,3 +1,5 @@
+package spaning_tree;
+
 import java.util.ArrayList;
 
 public class Connexite {
@@ -15,7 +17,7 @@ public class Connexite {
 		// Pour chaque sommet adjacent d'un des sommets de l'arc
             for(Edge ed : graph.getAdjacencyList(e.getFrom()))
             {
-            	// On vérifie si il n'y existe pas un autre chemin vers l'autre sommet de l'arc
+            	// On vï¿½rifie si il n'y existe pas un autre chemin vers l'autre sommet de l'arc
                 if(findPathRecurs(e.getTo(), ed, new ArrayList<Vertex>()))
                 {
                     return true;
@@ -25,19 +27,19 @@ public class Connexite {
     }
 	
 	public boolean findPathRecurs(Vertex dest, Edge e, ArrayList<Vertex> vList) {
-		// Ajoute le sommet dans la liste des visités
+		// Ajoute le sommet dans la liste des visitï¿½s
 		vList.add(e.getTo());
 		
-		// Si le sommet que l'on visite est égal à celui qu'on doit trouver
+		// Si le sommet que l'on visite est ï¿½gal ï¿½ celui qu'on doit trouver
 		// (L'autre sommet de l'arc d'origine), on a un cycle
 		if(e.getTo().equals(dest)) {
 			return true;
 		}
 		
 
-		// Tant qu'il y a des adjacences (récursivement), on les explore
+		// Tant qu'il y a des adjacences (rï¿½cursivement), on les explore
 		for(Edge edge : graph.getAdjacencyList(e.getTo())) {
-			// On ne veut pas visiter plusieurs fois les mêmes sommets (récursion infinie)
+			// On ne veut pas visiter plusieurs fois les mï¿½mes sommets (rï¿½cursion infinie)
 			if(vList.contains(edge.getTo())) continue; 
 			
 			if(findPathRecurs(dest, edge, vList)) return true;
@@ -48,14 +50,14 @@ public class Connexite {
 	
 	// Tentative infructueuse de Deep First Search
 	/*
-	 private boolean CycleRecurs(Vertex v, ArrayList<Vertex> visited, Vertex parent) 
+	 private boolean CycleRecurs(spaning_tree.Vertex v, ArrayList<spaning_tree.Vertex> visited, spaning_tree.Vertex parent)
 	    { 
 	        visited.add(v); 
 	        //System.out.println("v:" + v.toString());
-	        ArrayList<Edge> adj = graph.getAdjacencyList(v); 
+	        ArrayList<spaning_tree.Edge> adj = graph.getAdjacencyList(v);
 	        
-	        for (Edge i : adj) { 
-	        	//adj.add(new Edge(i.getTo(), i.getFrom(), i.getWeight()));
+	        for (spaning_tree.Edge i : adj) {
+	        	//adj.add(new spaning_tree.Edge(i.getTo(), i.getFrom(), i.getWeight()));
 	         System.out.print(i.toString() + " ; ");
 	       // System.out.println(v + ":" + i);
 	            if (!visited.contains(i.getTo()) && CycleRecurs(i.getTo(), visited, v)) 
@@ -69,9 +71,9 @@ public class Connexite {
 	        return false; 
 	    } 
 	  
-	    public boolean isCycle(Edge e) 
+	    public boolean isCycle(spaning_tree.Edge e)
 	    { 
-	        ArrayList<Vertex> visited = new ArrayList<>();
+	        ArrayList<spaning_tree.Vertex> visited = new ArrayList<>();
 	        
 	        if (CycleRecurs(e.getFrom(), visited, null)) 
 	            return true; 

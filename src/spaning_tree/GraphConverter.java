@@ -1,3 +1,4 @@
+package spaning_tree;
 
 import java.io.*;
 import java.util.ArrayList;

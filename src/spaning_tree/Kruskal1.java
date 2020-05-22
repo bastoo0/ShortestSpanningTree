@@ -1,10 +1,12 @@
+package spaning_tree;
+
 import java.util.List;
 import java.util.Set;
 
 public class Kruskal1 {
 
 	private Graph graph;
-	//ArrayList<Edge> edgeList = new ArrayList<>();
+	//ArrayList<spaning_tree.Edge> edgeList = new ArrayList<>();
 	Integer SPValue = 0;
 	
 	public Kruskal1(Graph g) {

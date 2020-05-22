@@ -1,9 +1,14 @@
+package spaning_tree;
+
 import java.util.ArrayList;
 
 public class Vertex implements Comparable<Vertex>{
-		private Integer value;
+
+	private Integer value;
 		
-		private ArrayList<Edge> adjacences;
+
+	private ArrayList<Edge> adjacences;
+
 	    public Vertex(Integer value) {
 	    	this.adjacences = new ArrayList<Edge>();
 	        this.value = value;

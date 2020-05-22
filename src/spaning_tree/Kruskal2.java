@@ -1,6 +1,6 @@
-import java.util.ArrayList;
+package spaning_tree;
+
 import java.util.List;
-import java.util.Set;
 
 public class Kruskal2 {
 
@@ -24,7 +24,7 @@ public class Kruskal2 {
 			Edge back = new Edge(e.getTo(), e.getFrom(), e.getWeight());
 			graph.getAdjacencyList(e.getFrom()).remove(back);
 			
-			// Si il n'y a plus de chemin disponible d'un bout à l'autre de l'arc
+			// Si il n'y a plus de chemin disponible d'un bout ï¿½ l'autre de l'arc
 			//  on remet l'arc dans le graph
 			if(!c.existsPathToDest(e)) {
 				graph.getAdjacencyList(e.getFrom()).add(e);
