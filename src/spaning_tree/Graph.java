@@ -84,6 +84,8 @@ public class Graph {
 		else return null;
 	}
 	
+
+	
 	public ArrayList<Vertex> getAdjacentVertex(Vertex v){
 		ArrayList<Vertex> result = new ArrayList<Vertex>();
 		ArrayList<Edge> adj = getAdjacencyList(v);
@@ -94,6 +96,21 @@ public class Graph {
 		Collections.shuffle(result);
 		return result;
 		
+	}
+	
+	// Retourne le degré du sommet qui a le plus grand degré du graph
+	// (Pour tester d-MST)
+	public Integer getDegMax() {
+		Integer max = 0;
+		for (Vertex v : getAllVertex()) {
+			if(getDegree(v) > max)
+				max = getDegree(v);
+		}
+		return max;
+	}
+	
+	public Integer getDegree(Vertex v) {
+		return getAdjacencyList(v).size();
 	}
 	
 	public Integer getWeight() {

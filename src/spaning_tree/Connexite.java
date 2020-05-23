@@ -16,14 +16,14 @@ public class Connexite {
 		// Pour chaque sommet adjacent d'un des sommets de l'arc
             for(Edge ed : graph.getAdjacencyList(e.getFrom()))
             {
-            	// On v�rifie si il n'y existe pas un autre chemin vers l'autre sommet de l'arc
+            	// On vérifie si il n'y existe pas un autre chemin vers l'autre sommet de l'arc
                 if(findPathRecurs(e.getTo(), ed, new HashSet<Vertex>())) return true;
             }
         return false;
     }
 	
 	public boolean findPathRecurs(Vertex dest, Edge e, HashSet<Vertex> vList) {
-		// Ajoute le sommet dans la liste des visit�s
+		// Ajoute le sommet dans la liste des visités
 		vList.add(e.getTo());
 		
 		// Si le sommet que l'on visite est égal à celui qu'on doit trouver

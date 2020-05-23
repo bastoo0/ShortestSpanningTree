@@ -6,7 +6,7 @@ import java.util.Set;
 public class Kruskal1 {
 
 	private Graph graph;
-	Integer SPValue = 0;
+	private Integer SPValue = 0;
 	private long exeTime;
 
 	public Kruskal1(Graph g) {
@@ -29,7 +29,7 @@ public class Kruskal1 {
 		
 		Connexite c = new Connexite(graph);
 		// Pour chaque arc
-		for(Edge e : edges) { // O(N)
+		for(Edge e : edges) {
 			// Si l'arc ne crée pas de cycle, on l'ajoute
 			if(!c.existsPathToDest(e)) {
 				graph.getAdjacencyList(e.getFrom()).add(e);

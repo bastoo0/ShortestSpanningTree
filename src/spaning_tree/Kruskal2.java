@@ -5,7 +5,7 @@ import java.util.List;
 public class Kruskal2 {
 
 	private Graph graph;
-	Integer SPValue = 0;
+	private Integer SPValue = 0;
 	private long exeTime;
 
 	public Kruskal2(Graph g) {
