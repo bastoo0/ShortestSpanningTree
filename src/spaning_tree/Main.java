@@ -43,7 +43,8 @@ public class Main {
 			System.out.println("MST pour Prim : " + prim.getSPWeigth() + 
 					" - calculé en " + prim.getExeTime() + " ms.");
 			
-			DPrim dprim = new DPrim(graph4, 3);
+			// On donne le degré de contrainte en paramètre du contructeur de DPrim
+			DPrim dprim = new DPrim(graph4, 2);
 			System.out.println("d-MST pour Prim : " + dprim.getSPWeigth() + " - calculé en " 
 			+ dprim.getExeTime() + " ms avec une contrainte de degré de " + dprim.getMaxDegreeResult() + ".");
 	}

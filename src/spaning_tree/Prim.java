@@ -28,7 +28,7 @@ public class Prim {
         //on choisit un sommet quelconque dans le graph et on le marque comme visité
         visited.add(edgesList.get(0).getFrom());
         for(int i = 0; i< vertrices.size(); i++) {
-        	// On r�cup�re l'arc de plus petite taille
+        	// On récupère l'arc de plus petite taille
         	Edge selected = selectMinimumWeight(edgesList, visited);
         	if(selected == null) break; // Si aucun arc trouvé, fin de l'algorithme
         	

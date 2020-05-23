@@ -9,6 +9,7 @@ import java.util.Set;
 
 
 // Algorithme de Prim avec une contrainte de degrée
+// Le résultat obtenu dépend de l'ordre de traitement des arcs
 public class DPrim {
 
     private Graph graph;
@@ -26,7 +27,7 @@ public class DPrim {
     public void primAlgorithm() {
 
         Set<Vertex> vertrices = graph.getGraph().keySet();
-        // On se sert de la hashmap pour stocker les degrés
+        // On se sert de la hashmap pour stocker les degrés des sommets
         Map<Vertex, Integer> degrees = new HashMap<>();
         for(Vertex v : vertrices) {
         degrees.put(v, 0);

@@ -30,7 +30,8 @@ public class Kruskal1 {
 		Connexite c = new Connexite(graph);
 		// Pour chaque arc
 		for(Edge e : edges) {
-			// Si l'arc ne crée pas de cycle, on l'ajoute
+			// Si l'arc ne crée pas de cycle (c'est à dire si on ne peut pas déjà
+			// aller d'un sommet à l'autre de l'arc), on l'ajoute
 			if(!c.existsPathToDest(e)) {
 				graph.getAdjacencyList(e.getFrom()).add(e);
 				Edge back = new Edge(e.getTo(), e.getFrom(), e.getWeight());

@@ -13,7 +13,7 @@ public class Connexite {
 	
 	public boolean existsPathToDest(Edge e)
     {
-		// Pour chaque sommet adjacent d'un des sommets de l'arc
+		// Pour chaque sommet adjacent d'un des sommets de l'arc que l'on veut insérer
             for(Edge ed : graph.getAdjacencyList(e.getFrom()))
             {
             	// On vérifie si il n'y existe pas un autre chemin vers l'autre sommet de l'arc
@@ -27,7 +27,7 @@ public class Connexite {
 		vList.add(e.getTo());
 		
 		// Si le sommet que l'on visite est égal à celui qu'on doit trouver
-		// (L'autre sommet de l'arc d'origine), on a un cycle
+		// (L'autre sommet de l'arc que l'on veut insérer), on a un cycle
 		if(e.getTo().equals(dest)) return true;
 		
 		// Tant qu'il y a des adjacences (récursivement), on les explore
